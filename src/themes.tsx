@@ -77,8 +77,9 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
         background-color: ${(props) => props.theme.searchbg};
         box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
     }
-
+    
     .border__btn {
+        transition: ${transitionTime};
         background-color: ${(props) => props.theme.cardbg};
     }
 `;
