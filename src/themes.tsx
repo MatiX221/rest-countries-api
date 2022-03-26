@@ -16,7 +16,7 @@ export const darkTheme = {
     background: "hsl(207, 26%, 17%)",
     color: "hsl(0, 0%, 100%)",
     cardbg: "hsl(209, 23%, 22%)",
-    shadow: "hsl(209, 23%, 22%)",
+    shadow: "hsl(209, 23%, 32%)",
     searchbg: "hsl(209, 23%, 22%)",
     searchimg: "white",
     searchshadow: "hsl(200, 15%, 8%)",
@@ -29,6 +29,11 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
         background-color: ${(props) => props.theme.background};
         color: ${(props) => props.theme.color};
     };
+    
+    .container__header {
+        transition: ${transitionTime};
+        box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
+    }
     
     .card {
         transition: ${transitionTime};

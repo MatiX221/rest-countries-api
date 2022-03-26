@@ -12,8 +12,10 @@ const Card = ({ png, name, population, region, capital, getClickedCountry }: any
     const popul = numberWithCommas(population);
 
     var listOfCapitals: any = "";
-    Object.keys(capital).forEach((key) => (listOfCapitals += `, ${capital[key]}`));
-    listOfCapitals = listOfCapitals.replace(",", "");
+    if (capital != undefined) {
+        Object.keys(capital).forEach((key) => (listOfCapitals += `, ${capital[key]}`));
+        listOfCapitals = listOfCapitals.replace(",", "");
+    }
 
     return (
         <div
@@ -27,15 +29,17 @@ const Card = ({ png, name, population, region, capital, getClickedCountry }: any
             </div>
             <div className="card__text">
                 <h2>{name}</h2>
-                <p>
-                    <span className="bolder">Population:</span> {popul}
-                </p>
-                <p>
-                    <span className="bolder">Region:</span> {region}
-                </p>
-                <p>
-                    <span className="bolder">Capital:</span> {listOfCapitals}
-                </p>
+                <div className="text__info">
+                    <p>
+                        <span className="bolder">Population:</span> {popul}
+                    </p>
+                    <p>
+                        <span className="bolder">Region:</span> {region}
+                    </p>
+                    <p>
+                        <span className="bolder">Capital:</span> {listOfCapitals}
+                    </p>
+                </div>
             </div>
         </div>
     );
@@ -46,7 +50,6 @@ Card.defaultProps = {
     name: "???",
     population: "???",
     region: "???",
-    capital: "???",
 };
 
 export default Card;

@@ -9,10 +9,24 @@ function CountryList({ inputValue, filterValue, inputChange, filterChange, count
             <div className="card__grid">
                 {filterValue === "region"
                     ? countries //
-                          .filter((country: any) => country.name.common.toLowerCase().includes(inputValue.toLowerCase()))
+                          .filter(
+                              (country: any) =>
+                                  //   country.name.nativeName != undefined
+                                  //       ? country.name.common.toLowerCase().includes(inputValue.toLowerCase()) || //
+                                  //         country.name.official.toLowerCase().includes(inputValue.toLowerCase()) ||
+                                  //         Object.keys(country.name.nativeName).forEach((key: any) => console.log(country.name.nativeName[key].common.toLowerCase())) //
+                                  //       :
+                                  country.name.common.toLowerCase().includes(inputValue.toLowerCase()) || //
+                                  country.name.official.toLowerCase().includes(inputValue.toLowerCase())
+                              //
+                          )
                           .map((country: any, index: any) => <Card png={country.flags.png} name={country.name.common} population={country.population} region={country.region} capital={country.capital} getClickedCountry={getClickedCountry} key={index}></Card>)
                     : countries
-                          .filter((country: any) => country.name.common.toLowerCase().includes(inputValue.toLowerCase()))
+                          .filter(
+                              (country: any) =>
+                                  country.name.common.toLowerCase().includes(inputValue.toLowerCase()) || //
+                                  country.name.official.toLowerCase().includes(inputValue.toLowerCase())
+                          )
                           .filter((country: any) => country.region.includes(filterValue))
                           .map((country: any, index: any) => <Card png={country.flags.png} name={country.name.common} population={country.population} region={country.region} capital={country.capital} getClickedCountry={getClickedCountry} key={index}></Card>)}
             </div>
