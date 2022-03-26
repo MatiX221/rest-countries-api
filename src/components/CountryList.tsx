@@ -67,11 +67,7 @@ function CountryList({ inputValue, filterValue, inputChange, filterChange, count
                           .filter((country: any) => isShown(country))
                           .map((country: any, index: any) => <Card png={country.flags.png} name={country.name.common} population={country.population} region={country.region} capital={country.capital} getClickedCountry={getClickedCountry} key={index}></Card>)
                     : countries
-                          .filter(
-                              (country: any) =>
-                                  country.name.common.toLowerCase().includes(inputValue.toLowerCase()) || //
-                                  country.name.official.toLowerCase().includes(inputValue.toLowerCase())
-                          )
+                          .filter((country: any) => isShown(country))
                           .filter((country: any) => country.region.includes(filterValue))
                           .map((country: any, index: any) => <Card png={country.flags.png} name={country.name.common} population={country.population} region={country.region} capital={country.capital} getClickedCountry={getClickedCountry} key={index}></Card>)}
             </div>
