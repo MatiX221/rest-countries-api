@@ -7,8 +7,6 @@ import Border from "./Border";
 function Details({ onclickfunc, country, getBorder, allCountries }: any) {
     const data = country[0];
 
-    console.log(data);
-
     function numberWithCommas(x: any) {
         x = x.toString();
         var pattern = /(-?\d+)(\d{3})/;

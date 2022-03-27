@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const transitionTime = "all 300ms linear";
+const transitionTime = "all 250ms linear";
 
 export const lightTheme = {
     background: "hsl(0, 0%, 88%)",
@@ -32,6 +32,7 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
     
     .container__header {
         transition: ${transitionTime};
+        background-color: ${(props) => props.theme.cardbg};
         box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
     }
     
@@ -81,5 +82,16 @@ export const GlobalStyles = createGlobalStyle<{ theme: any }>`
     .border__btn {
         transition: ${transitionTime};
         background-color: ${(props) => props.theme.cardbg};
+    }
+    
+    .image__front {
+        transition: ${transitionTime};
+        box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
+    }
+    
+    .image__back {
+        transition: ${transitionTime};
+        background-color: ${(props) => props.theme.background};
+        box-shadow: 0 0 5px 1px ${(props) => props.theme.shadow};
     }
 `;

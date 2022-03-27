@@ -1,7 +1,8 @@
 import React from "react";
+import CardFlag from "./CardFlag";
 import CountryList from "./CountryList";
 
-const Card = ({ png, name, population, region, capital, getClickedCountry }: any) => {
+const Card = ({ png, name, nameList, population, region, capital, getClickedCountry }: any) => {
     function numberWithCommas(x: any) {
         x = x.toString();
         var pattern = /(-?\d+)(\d{3})/;
@@ -24,9 +25,7 @@ const Card = ({ png, name, population, region, capital, getClickedCountry }: any
                 getClickedCountry(name);
             }}
         >
-            <div className="card__image">
-                <img src={png} />
-            </div>
+            <CardFlag png={png} name={nameList}></CardFlag>
             <div className="card__text">
                 <h2>{name}</h2>
                 <div className="text__info">
